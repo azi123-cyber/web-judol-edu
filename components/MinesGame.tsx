@@ -113,17 +113,26 @@ export const MinesGame: React.FC<MinesGameProps> = ({ banner, user, onSpin, onCl
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-0 md:p-2 bg-black/95 backdrop-blur-md">
-      <div className="bg-[#0f1923] border-0 md:border border-blue-500/30 rounded-none md:rounded-2xl w-full h-full md:h-auto max-w-4xl max-h-[100dvh] flex flex-col md:flex-row shadow-[0_0_80px_rgba(37,99,235,0.2)] overflow-y-auto md:overflow-hidden">
+      <div className="bg-[#0f1923] border-0 md:border border-blue-500/30 rounded-none md:rounded-2xl w-full h-full md:h-auto max-w-4xl max-h-[100dvh] shadow-[0_0_80px_rgba(37,99,235,0.2)] overflow-y-auto flex flex-col">
         
-        {/* Left Sidebar (Controls) */}
-        <div className="w-full md:w-80 bg-[#1f2933] p-5 flex flex-col border-b md:border-b-0 md:border-r border-gray-800 shrink-0">
-            <div className="flex justify-between items-center mb-6">
-                <div>
-                   <h2 className="text-white font-black text-xl italic uppercase tracking-wider">MINES</h2>
-                   <div className="text-[10px] text-blue-400 font-mono">SPRIBE | GACOR</div>
-                </div>
-                <button onClick={onClose} className="text-gray-400 hover:text-white"><X size={24}/></button>
+        {/* Mobile Header */}
+        <div className="flex md:hidden justify-between items-center bg-[#1f2933] p-4 border-b border-gray-800 shrink-0">
+            <div>
+               <h2 className="text-white font-black text-lg italic uppercase tracking-wider">MINES</h2>
             </div>
+            <button onClick={onClose} className="text-gray-400 hover:text-white"><X size={24}/></button>
+        </div>
+
+        <div className="flex flex-col-reverse md:flex-row flex-1 min-h-0">
+          {/* Left Sidebar (Controls) */}
+          <div className="w-full md:w-80 bg-[#1f2933] p-4 md:p-5 flex flex-col border-t md:border-t-0 md:border-r border-gray-800 shrink-0">
+              <div className="hidden md:flex justify-between items-center mb-6">
+                  <div>
+                     <h2 className="text-white font-black text-xl italic uppercase tracking-wider">MINES</h2>
+                     <div className="text-[10px] text-blue-400 font-mono">SPRIBE | GACOR</div>
+                  </div>
+                  <button onClick={onClose} className="text-gray-400 hover:text-white"><X size={24}/></button>
+              </div>
 
             <div className="bg-[#0f1923] p-3 rounded-lg mb-6 flex justify-between items-center border border-gray-800 relative">
                 <span className="text-gray-500 text-xs font-bold">SALDO</span>
@@ -206,7 +215,7 @@ export const MinesGame: React.FC<MinesGameProps> = ({ banner, user, onSpin, onCl
         </div>
 
         {/* Right Play Area */}
-        <div className="flex-1 bg-[#101b26] p-4 md:p-6 flex flex-col items-center justify-center relative min-h-[350px] md:min-h-[400px]">
+        <div className="flex-1 bg-[#101b26] p-4 md:p-6 py-10 md:py-6 flex flex-col items-center justify-center relative min-h-[350px] md:min-h-[400px]">
             {/* Provably fair mock text */}
             <div className="absolute top-4 right-4 text-[10px] text-gray-700 font-mono flex items-center gap-1">
                 <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span>
@@ -249,7 +258,7 @@ export const MinesGame: React.FC<MinesGameProps> = ({ banner, user, onSpin, onCl
                 </div>
             )}
         </div>
-
+        </div>
       </div>
     </div>
   );

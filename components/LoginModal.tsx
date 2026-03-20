@@ -137,11 +137,11 @@ export const LoginModal: React.FC<LoginModalProps> = ({ onClose, onLoginSuccess 
             <X size={18} />
         </button>
 
-        <div className="p-6">
+        <div className="p-4 md:p-6">
           {activeTab === 'LOGIN' && (
             <div className="space-y-5 animate-in slide-in-from-bottom-5">
                <div className="text-center">
-                  <Siren className="w-12 h-12 text-red-500 mx-auto mb-2 animate-bounce" />
+                  <Siren className="w-8 h-8 md:w-12 md:h-12 text-red-500 mx-auto mb-2 animate-bounce" />
                   <p className="text-xs text-yellow-500 font-bold uppercase tracking-widest animate-pulse">Server Gacor 99% Winrate</p>
                </div>
 
@@ -168,7 +168,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ onClose, onLoginSuccess 
                <button 
                  onClick={handleLogin}
                  disabled={isLoading}
-                 className="w-full bg-gradient-to-b from-blue-500 via-blue-600 to-blue-800 border-b-4 border-blue-900 text-white font-black text-lg py-3 rounded shadow-[0_0_20px_rgba(37,99,235,0.5)] hover:brightness-125 active:scale-95 transition-all uppercase tracking-widest rgb-border"
+                 className="w-full bg-gradient-to-b from-blue-500 via-blue-600 to-blue-800 border-b-4 border-blue-900 text-white font-black text-sm md:text-lg py-3 rounded shadow-[0_0_20px_rgba(37,99,235,0.5)] hover:brightness-125 active:scale-95 transition-all uppercase tracking-widest rgb-border"
                >
                  {isLoading ? 'Wait...' : 'LOGIN MASUK'}
                </button>
@@ -221,13 +221,13 @@ export const LoginModal: React.FC<LoginModalProps> = ({ onClose, onLoginSuccess 
                   value={otp} onChange={e => setOtp(e.target.value)}
                   placeholder="X X X X" 
                   maxLength={4}
-                  className="w-full bg-black border-2 border-yellow-500 rounded p-4 text-center text-4xl font-mono text-yellow-500 tracking-[0.2em] outline-none shadow-[0_0_20px_rgba(234,179,8,0.5)] focus:scale-105 transition-transform"
+                  className="w-full bg-black border-2 border-yellow-500 rounded p-2 md:p-4 text-center text-3xl md:text-4xl font-mono text-yellow-500 tracking-[0.2em] outline-none shadow-[0_0_20px_rgba(234,179,8,0.5)] focus:scale-105 transition-transform"
                />
 
                <button 
                  onClick={handleVerifyOTPAndRegister}
                  disabled={isLoading}
-                 className="w-full bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 text-white font-black text-xl py-3 rounded shadow-lg hover:brightness-125 active:scale-95 transition-all uppercase tracking-widest animate-blink"
+                 className="w-full bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 text-white font-black text-lg md:text-xl py-3 rounded shadow-lg hover:brightness-125 active:scale-95 transition-all uppercase tracking-widest animate-blink"
                >
                  {isLoading ? '...' : 'DAFTAR SEKARANG'}
                </button>

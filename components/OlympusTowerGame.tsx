@@ -119,17 +119,26 @@ export const OlympusTowerGame: React.FC<OlympusTowerGameProps> = ({ banner, user
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-0 md:p-2 bg-black/95 backdrop-blur-md">
-      <div className="bg-[#0f041c] border-0 md:border-2 border-yellow-500 rounded-none md:rounded-2xl w-full h-full md:h-auto max-w-4xl max-h-[100dvh] flex flex-col md:flex-row shadow-[0_0_80px_rgba(234,179,8,0.3)] overflow-y-auto md:overflow-hidden">
+      <div className="bg-[#0f041c] border-0 md:border-2 border-yellow-500 rounded-none md:rounded-2xl w-full h-full md:h-auto max-w-4xl max-h-[100dvh] shadow-[0_0_80px_rgba(234,179,8,0.3)] overflow-y-auto flex flex-col">
         
-        {/* Sidebar Controls */}
-        <div className="w-full md:w-80 bg-[#170529] p-5 flex flex-col border-b md:border-b-0 md:border-r border-[#3d1a5c] shrink-0">
-            <div className="flex justify-between items-center mb-6">
-                <div>
-                   <h2 className="text-white font-black text-xl italic uppercase tracking-wider text-yellow-400 drop-shadow-[0_2px_2px_#000]">TOWER OF OLYMPUS</h2>
-                   <div className="text-[10px] text-purple-400 font-mono">PRAGMATIC | GACOR</div>
-                </div>
-                <button onClick={onClose} className="text-gray-400 hover:text-white"><X size={24}/></button>
+        {/* Mobile Header */}
+        <div className="flex md:hidden justify-between items-center bg-[#170529] p-4 border-b border-[#3d1a5c] shrink-0">
+            <div>
+               <h2 className="text-yellow-500 font-black text-lg italic uppercase tracking-widest drop-shadow-[0_0_10px_rgba(234,179,8,0.5)]">TOWER OF OLYMPUS</h2>
             </div>
+            <button onClick={onClose} className="text-gray-400 hover:text-white"><X size={24}/></button>
+        </div>
+
+        <div className="flex flex-col-reverse md:flex-row flex-1 min-h-0">
+          {/* Sidebar Controls */}
+          <div className="w-full md:w-80 bg-[#170529] p-4 md:p-5 flex flex-col border-t md:border-t-0 md:border-r border-[#3d1a5c] shrink-0">
+              <div className="hidden md:flex justify-between items-center mb-6">
+                  <div>
+                     <h2 className="text-white font-black text-xl italic uppercase tracking-wider text-yellow-400 drop-shadow-[0_2px_2px_#000]">TOWER OF OLYMPUS</h2>
+                     <div className="text-[10px] text-purple-400 font-mono">PRAGMATIC | GACOR</div>
+                  </div>
+                  <button onClick={onClose} className="text-gray-400 hover:text-white"><X size={24}/></button>
+              </div>
 
             <div className="bg-[#0f041c] p-3 rounded-lg mb-6 flex justify-between items-center border border-yellow-900 relative">
                 <span className="text-gray-400 text-xs font-bold">SALDO</span>
@@ -199,14 +208,14 @@ export const OlympusTowerGame: React.FC<OlympusTowerGameProps> = ({ banner, user
         </div>
 
         {/* Right Play Area (Tower) */}
-        <div className="flex-1 bg-[#1a082e] p-2 md:p-6 flex flex-col items-center justify-center relative min-h-[400px]">
+        <div className="flex-1 bg-[#1a082e] p-2 md:p-6 py-6 md:py-6 flex flex-col items-center justify-center relative min-h-[300px] md:min-h-[400px]">
             
             <div className="absolute top-4 right-4 text-[10px] text-yellow-500/50 font-mono flex items-center gap-1 bg-black/40 px-2 py-1 rounded-full border border-yellow-500/30">
                 <span className="w-1.5 h-1.5 bg-yellow-500 rounded-full animate-pulse"></span>
                 PROVABLY FAIR SYSTEM
             </div>
 
-            <div className="w-full max-w-[350px] flex flex-col-reverse gap-2">
+            <div className="w-full max-w-[300px] md:max-w-[350px] flex flex-col-reverse gap-1 md:gap-2">
                 {board.map((row, rIdx) => {
                     const isCurrent = rIdx === currentRow && gameState === 'playing';
                     const isPast = rIdx < currentRow && gameState === 'playing';
@@ -218,7 +227,7 @@ export const OlympusTowerGame: React.FC<OlympusTowerGameProps> = ({ banner, user
                                     key={cIdx}
                                     disabled={!isCurrent || tile !== 'hidden'}
                                     onClick={() => handleTileClick(rIdx, cIdx)}
-                                    className={`flex-1 h-12 md:h-14 rounded-lg shadow-lg transition-all duration-300 flex items-center justify-center border-b-4 relative overflow-hidden
+                                    className={`flex-1 h-10 md:h-14 rounded-lg shadow-lg transition-all duration-300 flex items-center justify-center border-b-[3px] md:border-b-4 relative overflow-hidden
                                         ${tile === 'hidden' && isCurrent ? 'bg-[#3d1a5c] border-[#290d42] hover:bg-[#522978] cursor-pointer hover:-translate-y-1' : ''}
                                         ${tile === 'hidden' && !isCurrent ? 'bg-[#29133b] border-[#1c0d2b] cursor-not-allowed opacity-60' : ''}
                                         ${tile === 'safe' ? 'bg-gradient-to-b from-yellow-500 to-yellow-700 border-[#8a6a1c] !border-b-0 translate-y-1' : ''}
@@ -251,7 +260,7 @@ export const OlympusTowerGame: React.FC<OlympusTowerGameProps> = ({ banner, user
                 </div>
             )}
         </div>
-
+        </div>
       </div>
     </div>
   );
