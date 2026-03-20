@@ -4,7 +4,7 @@ import { UserState, Banner, SpinResult } from './types';
 import { BANNERS, WINNERS_TICKER } from './constants';
 import { LoginModal } from './components/LoginModal';
 import { MahjongGame } from './components/MahjongGame';
-import { OlympusTowerGame } from './components/OlympusTowerGame';
+import { OlympusSlotGame } from './components/OlympusSlotGame';
 import { CrashGame } from './components/CrashGame';
 import { SpinWheel } from './components/SpinWheelGame';
 import { MinesGame } from './components/MinesGame';
@@ -91,7 +91,7 @@ function App() {
     const commonProps = { banner: selectedBanner, user, onSpin: handleSpin, onClose: () => setSelectedBanner(null) };
     switch(selectedBanner.gameType) {
       case 'MAHJONG': return <MahjongGame {...commonProps} />;
-      case 'SLOT': return <OlympusTowerGame {...commonProps} />;
+      case 'SLOT': return <OlympusSlotGame {...commonProps} />;
       case 'CRASH': return <CrashGame {...commonProps} />;
       case 'WHEEL': return <SpinWheel {...commonProps} />;
       case 'MINES': return <MinesGame {...commonProps} />;
