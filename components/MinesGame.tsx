@@ -112,8 +112,8 @@ export const MinesGame: React.FC<MinesGameProps> = ({ banner, user, onSpin, onCl
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-2 bg-black/95 backdrop-blur-md">
-      <div className="bg-[#0f1923] border border-blue-500/30 rounded-2xl w-full max-w-4xl flex flex-col md:flex-row shadow-[0_0_80px_rgba(37,99,235,0.2)] overflow-hidden h-[90vh] md:h-auto">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-0 md:p-2 bg-black/95 backdrop-blur-md">
+      <div className="bg-[#0f1923] border-0 md:border border-blue-500/30 rounded-none md:rounded-2xl w-full h-full md:h-auto max-w-4xl max-h-[100dvh] flex flex-col md:flex-row shadow-[0_0_80px_rgba(37,99,235,0.2)] overflow-y-auto md:overflow-hidden">
         
         {/* Left Sidebar (Controls) */}
         <div className="w-full md:w-80 bg-[#1f2933] p-5 flex flex-col border-b md:border-b-0 md:border-r border-gray-800 shrink-0">
@@ -138,7 +138,7 @@ export const MinesGame: React.FC<MinesGameProps> = ({ banner, user, onSpin, onCl
             </div>
 
             {gameState === 'idle' || gameState === 'cashedout' || gameState === 'crashed' ? (
-                <div className="space-y-5 flex-1 overflow-y-auto">
+                <div className="space-y-4 md:space-y-5 flex-1 overflow-y-auto pb-4 md:pb-0">
                     <div>
                         <label className="text-xs text-gray-400 font-bold mb-2 block">AMOUNT (BET)</label>
                         <div className="flex items-center bg-[#0a1118] border border-gray-700 rounded-lg p-1">
@@ -178,7 +178,7 @@ export const MinesGame: React.FC<MinesGameProps> = ({ banner, user, onSpin, onCl
                     </button>
                 </div>
             ) : (
-                <div className="flex-1 flex flex-col justify-end">
+                <div className="flex-1 flex flex-col justify-end pt-4 md:pt-0">
                     <div className="bg-[#0a1118] p-4 rounded-xl border border-gray-700 mb-4 text-center">
                         <div className="text-gray-400 text-xs font-bold mb-1">TOTAL PROFIT</div>
                         <div className="text-3xl font-black text-green-400 font-mono">{(currentMultiplier).toFixed(2)}x</div>
@@ -206,7 +206,7 @@ export const MinesGame: React.FC<MinesGameProps> = ({ banner, user, onSpin, onCl
         </div>
 
         {/* Right Play Area */}
-        <div className="flex-1 bg-[#101b26] p-6 flex flex-col items-center justify-center relative overflow-y-auto min-h-[400px]">
+        <div className="flex-1 bg-[#101b26] p-4 md:p-6 flex flex-col items-center justify-center relative min-h-[350px] md:min-h-[400px]">
             {/* Provably fair mock text */}
             <div className="absolute top-4 right-4 text-[10px] text-gray-700 font-mono flex items-center gap-1">
                 <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span>

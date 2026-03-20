@@ -95,8 +95,8 @@ export const SpinWheel: React.FC<SpinWheelProps> = ({ banner, user, onSpin, onCl
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-2 bg-black/95 backdrop-blur-md">
-      <div className="bg-gradient-to-b from-[#1a0a00] to-black border-2 border-yellow-500 rounded-2xl w-full max-w-md overflow-hidden shadow-[0_0_80px_rgba(234,179,8,0.4)] flex flex-col">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-0 md:p-2 bg-black/95 backdrop-blur-md">
+      <div className="bg-gradient-to-b from-[#1a0a00] to-black border-0 md:border-2 border-yellow-500 rounded-none md:rounded-2xl w-full h-full md:h-auto max-h-[100dvh] max-w-md overflow-y-auto md:overflow-hidden shadow-[0_0_80px_rgba(234,179,8,0.4)] flex flex-col">
         
         <div className="px-5 py-3 flex justify-between items-center bg-[#120800] border-b border-yellow-900/50">
           <div>

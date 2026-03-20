@@ -118,8 +118,8 @@ export const OlympusTowerGame: React.FC<OlympusTowerGameProps> = ({ banner, user
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-2 bg-black/95 backdrop-blur-md">
-      <div className="bg-[#0f041c] border-2 border-yellow-500 rounded-2xl w-full max-w-4xl flex flex-col md:flex-row shadow-[0_0_80px_rgba(234,179,8,0.3)] overflow-hidden h-[90vh] md:h-auto">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-0 md:p-2 bg-black/95 backdrop-blur-md">
+      <div className="bg-[#0f041c] border-0 md:border-2 border-yellow-500 rounded-none md:rounded-2xl w-full h-full md:h-auto max-w-4xl max-h-[100dvh] flex flex-col md:flex-row shadow-[0_0_80px_rgba(234,179,8,0.3)] overflow-y-auto md:overflow-hidden">
         
         {/* Sidebar Controls */}
         <div className="w-full md:w-80 bg-[#170529] p-5 flex flex-col border-b md:border-b-0 md:border-r border-[#3d1a5c] shrink-0">
@@ -144,7 +144,7 @@ export const OlympusTowerGame: React.FC<OlympusTowerGameProps> = ({ banner, user
             </div>
 
             {gameState === 'idle' || gameState === 'cashedout' || gameState === 'crashed' ? (
-                <div className="space-y-5 flex-1 overflow-y-auto">
+                <div className="space-y-4 md:space-y-5 flex-1 overflow-y-auto pb-4 md:pb-0">
                     <div>
                         <label className="text-xs text-purple-300 font-bold mb-2 block">AMOUNT (BET)</label>
                         <div className="flex items-center bg-[#08020f] border border-[#3d1a5c] rounded-lg p-1">
@@ -171,7 +171,7 @@ export const OlympusTowerGame: React.FC<OlympusTowerGameProps> = ({ banner, user
                     </button>
                 </div>
             ) : (
-                <div className="flex-1 flex flex-col justify-end">
+                <div className="flex-1 flex flex-col justify-end pt-4 md:pt-0">
                     <div className="bg-[#08020f] p-4 rounded-xl border border-yellow-900 mb-4 text-center">
                         <div className="text-gray-400 text-xs font-bold mb-1">TOTAL PROFIT</div>
                         <div className="text-4xl font-black text-yellow-400 font-mono drop-shadow-[0_0_10px_rgba(234,179,8,0.5)]">{(currentMultiplier).toFixed(2)}x</div>
@@ -199,7 +199,7 @@ export const OlympusTowerGame: React.FC<OlympusTowerGameProps> = ({ banner, user
         </div>
 
         {/* Right Play Area (Tower) */}
-        <div className="flex-1 bg-[#1a082e] p-2 md:p-6 flex flex-col items-center justify-center relative overflow-y-auto min-h-[400px]">
+        <div className="flex-1 bg-[#1a082e] p-2 md:p-6 flex flex-col items-center justify-center relative min-h-[400px]">
             
             <div className="absolute top-4 right-4 text-[10px] text-yellow-500/50 font-mono flex items-center gap-1 bg-black/40 px-2 py-1 rounded-full border border-yellow-500/30">
                 <span className="w-1.5 h-1.5 bg-yellow-500 rounded-full animate-pulse"></span>

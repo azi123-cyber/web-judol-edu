@@ -92,8 +92,8 @@ export const CrashGame: React.FC<CrashGameProps> = ({ banner, user, onSpin, onCl
   const planeY = phase === 'flying' ? Math.min(60, (multiplier - 1) * 25) : 0;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-2 bg-black/95 backdrop-blur-md">
-      <div className="bg-gradient-to-b from-[#0a0a1a] to-black border-2 border-blue-500 rounded-2xl w-full max-w-lg overflow-hidden shadow-[0_0_80px_rgba(59,130,246,0.4)] flex flex-col">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-0 md:p-2 bg-black/95 backdrop-blur-md">
+      <div className="bg-gradient-to-b from-[#0a0a1a] to-black border-0 md:border-2 border-blue-500 rounded-none md:rounded-2xl w-full h-full md:h-auto max-h-[100dvh] max-w-lg overflow-y-auto md:overflow-hidden shadow-[0_0_80px_rgba(59,130,246,0.4)] flex flex-col">
         
         <div className="px-5 py-3 flex justify-between items-center bg-[#06061a] border-b border-blue-900/50">
           <div>

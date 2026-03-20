@@ -90,7 +90,7 @@ export const MahjongGame: React.FC<MahjongGameProps> = ({ banner, user, onSpin, 
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-0 md:p-4 bg-black/95">
-      <div className="bg-[#0b2114] w-full max-w-sm md:max-w-md h-full md:h-auto rounded-none md:rounded-3xl border-2 border-[#194026] relative overflow-hidden flex flex-col items-center">
+      <div className="bg-[#0b2114] w-full max-w-sm md:max-w-md h-full md:h-auto max-h-[100dvh] rounded-none md:rounded-3xl border-2 border-[#194026] relative overflow-y-auto md:overflow-hidden flex flex-col items-center">
         
         <div className="w-full bg-[#07140c] text-center py-2 flex justify-between px-4 items-center">
              <button onClick={onClose} className="text-gray-500 hover:text-white"><X size={20}/></button>
