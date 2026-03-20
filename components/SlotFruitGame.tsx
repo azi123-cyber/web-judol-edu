@@ -80,8 +80,8 @@ export const SlotFruitGame: React.FC<SlotFruitGameProps> = ({ banner, user, onSp
   }, [spinning, user.balance, user.spinCount, bet, onSpin]);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-2 bg-black/95 backdrop-blur-md">
-      <div className="bg-gradient-to-b from-[#1a0530] via-[#0d0120] to-black border-2 border-purple-500 rounded-2xl w-full max-w-lg overflow-hidden shadow-[0_0_80px_rgba(168,85,247,0.4)] flex flex-col relative">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-0 md:p-2 bg-black/95 backdrop-blur-md">
+      <div className="bg-gradient-to-b from-[#1a0530] via-[#0d0120] to-black border-0 md:border-2 border-purple-500 rounded-none md:rounded-2xl w-full h-full md:h-auto max-h-[100dvh] max-w-lg overflow-y-auto md:overflow-hidden shadow-[0_0_80px_rgba(168,85,247,0.4)] flex flex-col relative">
         
         {/* Neon decorative top bar */}
         <div className="h-1 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 animate-pulse"></div>

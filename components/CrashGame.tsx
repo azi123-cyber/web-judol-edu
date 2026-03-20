@@ -105,7 +105,7 @@ export const CrashGame: React.FC<CrashGameProps> = ({ banner, user, onSpin, onCl
         </div>
 
         {/* Crash Display */}
-        <div className="relative bg-[#050510] p-6 flex flex-col items-center" style={{minHeight: 220}}>
+        <div className="relative bg-[#050510] p-4 md:p-6 flex flex-col items-center min-h-[150px] md:min-h-[220px]">
           {/* Grid background */}
           <div className="absolute inset-0 opacity-10" style={{backgroundImage: 'linear-gradient(rgba(59,130,246,.5) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,.5) 1px, transparent 1px)', backgroundSize: '30px 30px'}}></div>
           
@@ -121,7 +121,7 @@ export const CrashGame: React.FC<CrashGameProps> = ({ banner, user, onSpin, onCl
 
           {/* Big multiplier */}
           <div className="flex-1 flex flex-col items-center justify-center">
-            <div className={`text-6xl md:text-8xl font-black italic ${multiplierColor} drop-shadow-[0_0_20px_currentColor] transition-colors`}>
+            <div className={`text-5xl md:text-8xl font-black italic ${multiplierColor} drop-shadow-[0_0_20px_currentColor] transition-colors`}>
               {phase === 'crashed' ? (
                 <span className="text-red-500">CRASH!</span>
               ) : phase === 'cashedout' ? (
@@ -141,9 +141,9 @@ export const CrashGame: React.FC<CrashGameProps> = ({ banner, user, onSpin, onCl
 
         {/* Controls */}
         <div className="p-4 bg-black border-t border-blue-900/30 space-y-3">
-          <div className="flex justify-between items-center bg-gray-900/80 p-3 rounded-lg border border-gray-800">
-            <span className="text-gray-500 text-sm font-mono">SALDO</span>
-            <span className="text-green-400 font-black font-mono text-xl relative">
+          <div className="flex justify-between items-center bg-gray-900/80 p-2 md:p-3 rounded-lg border border-gray-800">
+            <span className="text-gray-500 text-xs md:text-sm font-mono">SALDO</span>
+            <span className="text-green-400 font-black font-mono text-lg md:text-xl relative">
                 Rp {user.balance.toLocaleString('id-ID')}
                 {lossAnim && (
                     <span className="absolute -top-6 right-0 text-red-500 text-sm font-black animate-[ping_1s_forwards] pointer-events-none drop-shadow-[0_0_5px_red]">
@@ -165,9 +165,9 @@ export const CrashGame: React.FC<CrashGameProps> = ({ banner, user, onSpin, onCl
                 className="bg-red-600 text-[10px] text-white font-black px-2 py-5 rounded-lg border-b-2 border-red-900 leading-none">
                 ALL <br/>IN
               </button>
-              <button onClick={handleStart} disabled={user.balance < bet}
-                className="w-28 h-16 rounded-xl font-black text-md uppercase tracking-widest bg-gradient-to-b from-blue-400 to-blue-600 text-white border-b-4 border-blue-900 shadow-[0_0_20px_rgba(59,130,246,0.5)] hover:brightness-110 active:scale-95 transition-all">
-                PASANG BET
+                <button onClick={handleStart} disabled={user.balance < bet}
+                className="w-24 md:w-28 h-12 md:h-16 rounded-xl font-black text-xs md:text-md uppercase tracking-widest bg-gradient-to-b from-blue-400 to-blue-600 text-white border-b-4 border-blue-900 shadow-[0_0_20px_rgba(59,130,246,0.5)] hover:brightness-110 active:scale-95 transition-all">
+                BET
               </button>
             </div>
           )}

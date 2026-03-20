@@ -134,7 +134,7 @@ export const MinesGame: React.FC<MinesGameProps> = ({ banner, user, onSpin, onCl
                   <button onClick={onClose} className="text-gray-400 hover:text-white"><X size={24}/></button>
               </div>
 
-            <div className="bg-[#0f1923] p-3 rounded-lg mb-6 flex justify-between items-center border border-gray-800 relative">
+            <div className="bg-[#0f1923] p-2 md:p-3 rounded-lg mb-2 md:mb-6 flex justify-between items-center border border-gray-800 relative">
                 <span className="text-gray-500 text-xs font-bold">SALDO</span>
                 <span className="text-green-400 font-black font-mono relative">
                     Rp {user.balance.toLocaleString('id-ID')}
@@ -147,7 +147,7 @@ export const MinesGame: React.FC<MinesGameProps> = ({ banner, user, onSpin, onCl
             </div>
 
             {gameState === 'idle' || gameState === 'cashedout' || gameState === 'crashed' ? (
-                <div className="space-y-4 md:space-y-5 flex-1 overflow-y-auto pb-4 md:pb-0">
+                <div className="space-y-2 md:space-y-5 flex-1 overflow-y-auto pb-4 md:pb-0">
                     <div>
                         <label className="text-xs text-gray-400 font-bold mb-2 block">AMOUNT (BET)</label>
                         <div className="flex items-center bg-[#0a1118] border border-gray-700 rounded-lg p-1">
@@ -187,14 +187,14 @@ export const MinesGame: React.FC<MinesGameProps> = ({ banner, user, onSpin, onCl
                     </button>
                 </div>
             ) : (
-                <div className="flex-1 flex flex-col justify-end pt-4 md:pt-0">
-                    <div className="bg-[#0a1118] p-4 rounded-xl border border-gray-700 mb-4 text-center">
-                        <div className="text-gray-400 text-xs font-bold mb-1">TOTAL PROFIT</div>
-                        <div className="text-3xl font-black text-green-400 font-mono">{(currentMultiplier).toFixed(2)}x</div>
-                        <div className="text-green-500 font-bold">+Rp {Math.floor(bet * currentMultiplier).toLocaleString('id-ID')}</div>
+                <div className="flex-1 flex flex-col justify-end pt-2 md:pt-0">
+                    <div className="bg-[#0a1118] p-2 md:p-4 rounded-xl border border-gray-700 mb-2 md:mb-4 text-center">
+                        <div className="text-gray-400 text-[10px] md:text-xs font-bold mb-1">TOTAL PROFIT</div>
+                        <div className="text-2xl md:text-3xl font-black text-green-400 font-mono">{(currentMultiplier).toFixed(2)}x</div>
+                        <div className="text-green-500 text-xs md:text-base font-bold">+Rp {Math.floor(bet * currentMultiplier).toLocaleString('id-ID')}</div>
                     </div>
 
-                    <div className="bg-[#0a1118] p-3 rounded-xl border border-gray-800 mb-4 flex justify-between items-center text-xs">
+                    <div className="bg-[#0a1118] p-2 md:p-3 rounded-xl border border-gray-800 mb-2 md:mb-4 flex justify-between items-center text-[10px] md:text-xs">
                         <span className="text-gray-500">Next Tile Profit:</span>
                         <span className="text-yellow-500 font-bold">{(nextMultiplier).toFixed(2)}x</span>
                     </div>
@@ -215,14 +215,14 @@ export const MinesGame: React.FC<MinesGameProps> = ({ banner, user, onSpin, onCl
         </div>
 
         {/* Right Play Area */}
-        <div className="flex-1 bg-[#101b26] p-4 md:p-6 py-10 md:py-6 flex flex-col items-center justify-center relative min-h-[350px] md:min-h-[400px]">
+        <div className="flex-1 bg-[#101b26] p-2 md:p-6 py-2 md:py-6 flex flex-col items-center justify-center relative min-h-0 md:min-h-[400px]">
             {/* Provably fair mock text */}
             <div className="absolute top-4 right-4 text-[10px] text-gray-700 font-mono flex items-center gap-1">
                 <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span>
                 PROVABLY FAIR SYSTEM
             </div>
 
-            <div className="grid grid-cols-5 gap-2 md:gap-3 w-full max-w-[400px]">
+            <div className="grid grid-cols-5 gap-1.5 md:gap-3 w-full max-w-[320px] md:max-w-[400px] scale-[0.9] md:scale-100 origin-center">
                 {board.map((tile, i) => {
                     const isGameOver = gameState === 'crashed' || gameState === 'cashedout';
                     return (

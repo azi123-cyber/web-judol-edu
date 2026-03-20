@@ -96,7 +96,7 @@ export const OlympusInteractiveGame: React.FC<OlympusInterGameProps> = ({ banner
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-2 bg-black/95 backdrop-blur-md">
-      <div className="bg-[#1c082b] border-2 border-yellow-500 rounded-2xl w-full max-w-4xl flex flex-col md:flex-row shadow-[0_0_80px_rgba(234,179,8,0.3)] overflow-hidden h-[90vh] md:h-auto">
+      <div className="bg-[#1c082b] border-2 border-yellow-500 rounded-none md:rounded-2xl w-full max-w-4xl flex flex-col md:flex-row shadow-[0_0_80px_rgba(234,179,8,0.3)] overflow-y-auto md:overflow-hidden h-full md:h-auto max-h-[100dvh]">
         
         {/* Sidebar Controls */}
         <div className="w-full md:w-80 bg-[#12051f] p-5 flex flex-col border-b md:border-b-0 md:border-r border-[#3d1a5c] shrink-0">
@@ -108,13 +108,13 @@ export const OlympusInteractiveGame: React.FC<OlympusInterGameProps> = ({ banner
                 <button onClick={onClose} className="text-gray-400 hover:text-white"><X size={24}/></button>
             </div>
 
-            <div className="bg-[#1c082b] p-3 rounded-lg mb-6 flex justify-between items-center border border-yellow-900">
+            <div className="bg-[#1c082b] p-2 md:p-3 rounded-lg mb-2 md:mb-6 flex justify-between items-center border border-yellow-900">
                 <span className="text-gray-400 text-xs font-bold">SALDO</span>
                 <span className="text-yellow-400 font-black font-mono">Rp {user.balance.toLocaleString('id-ID')}</span>
             </div>
 
             {gameState === 'idle' || gameState === 'cashedout' || gameState === 'crashed' ? (
-                <div className="space-y-5 flex-1 overflow-y-auto">
+                <div className="space-y-2 md:space-y-5 flex-1 overflow-y-auto">
                     <div>
                         <label className="text-xs text-purple-300 font-bold mb-2 block">AMOUNT (BET)</label>
                         <div className="flex items-center bg-[#0d0117] border border-[#3d1a5c] rounded-lg p-1">
@@ -140,14 +140,14 @@ export const OlympusInteractiveGame: React.FC<OlympusInterGameProps> = ({ banner
                     </button>
                 </div>
             ) : (
-                <div className="flex-1 flex flex-col justify-end">
-                    <div className="bg-[#0d0117] p-4 rounded-xl border border-yellow-900 mb-4 text-center">
-                        <div className="text-gray-400 text-xs font-bold mb-1">TOTAL PROFIT</div>
-                        <div className="text-4xl font-black text-yellow-400 font-mono drop-shadow-[0_0_10px_rgba(234,179,8,0.5)]">{(currentMultiplier).toFixed(2)}x</div>
-                        <div className="text-green-500 font-bold">+Rp {Math.floor(bet * currentMultiplier).toLocaleString('id-ID')}</div>
+                <div className="flex-1 flex flex-col justify-end pt-2 md:pt-0">
+                    <div className="bg-[#0d0117] p-2 md:p-4 rounded-xl border border-yellow-900 mb-2 md:mb-4 text-center">
+                        <div className="text-gray-400 text-[10px] md:text-xs font-bold mb-1">TOTAL PROFIT</div>
+                        <div className="text-2xl md:text-4xl font-black text-yellow-400 font-mono drop-shadow-[0_0_10px_rgba(234,179,8,0.5)]">{(currentMultiplier).toFixed(2)}x</div>
+                        <div className="text-green-500 text-xs md:text-base font-bold">+Rp {Math.floor(bet * currentMultiplier).toLocaleString('id-ID')}</div>
                     </div>
 
-                    <div className="bg-[#0d0117] p-3 rounded-xl border border-[#3d1a5c] mb-4 flex justify-between items-center text-xs">
+                    <div className="bg-[#0d0117] p-2 md:p-3 rounded-xl border border-[#3d1a5c] mb-2 md:mb-4 flex justify-between items-center text-[10px] md:text-xs">
                         <span className="text-purple-300">Next Tile:</span>
                         <span className="text-yellow-500 font-bold">{(nextMultiplier).toFixed(2)}x</span>
                     </div>
@@ -168,14 +168,14 @@ export const OlympusInteractiveGame: React.FC<OlympusInterGameProps> = ({ banner
         </div>
 
         {/* Right Play Area */}
-        <div className="flex-1 bg-[#26103b] p-4 flex flex-col items-center justify-center relative overflow-y-auto min-h-[400px]">
+        <div className="flex-1 bg-[#26103b] p-2 md:p-4 flex flex-col items-center justify-center relative min-h-0 md:min-h-[400px]">
             
             <div className="absolute top-4 right-4 text-[10px] text-yellow-500/50 font-mono flex items-center gap-1 bg-black/40 px-2 py-1 rounded-full border border-yellow-500/30">
                 <span className="w-1.5 h-1.5 bg-yellow-500 rounded-full animate-pulse"></span>
                 PROVABLY FAIR SYSTEM
             </div>
 
-            <div className="grid grid-cols-6 gap-2 w-full max-w-[450px]">
+            <div className="grid grid-cols-6 gap-1 md:gap-2 w-full max-w-[320px] md:max-w-[450px] scale-[0.9] md:scale-100 origin-center">
                 {board.map((tile, i) => {
                     const isGameOver = gameState === 'crashed' || gameState === 'cashedout';
                     return (
