@@ -140,7 +140,7 @@ export const OlympusTowerGame: React.FC<OlympusTowerGameProps> = ({ banner, user
                   <button onClick={onClose} className="text-gray-400 hover:text-white"><X size={24}/></button>
               </div>
 
-            <div className="bg-[#0f041c] p-3 rounded-lg mb-6 flex justify-between items-center border border-yellow-900 relative">
+            <div className="bg-[#0f041c] p-2 md:p-3 rounded-lg mb-2 md:mb-6 flex justify-between items-center border border-yellow-900 relative">
                 <span className="text-gray-400 text-xs font-bold">SALDO</span>
                 <span className="text-yellow-400 font-black font-mono relative">
                    Rp {user.balance.toLocaleString('id-ID')}
@@ -153,7 +153,7 @@ export const OlympusTowerGame: React.FC<OlympusTowerGameProps> = ({ banner, user
             </div>
 
             {gameState === 'idle' || gameState === 'cashedout' || gameState === 'crashed' ? (
-                <div className="space-y-4 md:space-y-5 flex-1 overflow-y-auto pb-4 md:pb-0">
+                <div className="space-y-2 md:space-y-5 flex-1 overflow-y-auto pb-4 md:pb-0">
                     <div>
                         <label className="text-xs text-purple-300 font-bold mb-2 block">AMOUNT (BET)</label>
                         <div className="flex items-center bg-[#08020f] border border-[#3d1a5c] rounded-lg p-1">
@@ -180,14 +180,14 @@ export const OlympusTowerGame: React.FC<OlympusTowerGameProps> = ({ banner, user
                     </button>
                 </div>
             ) : (
-                <div className="flex-1 flex flex-col justify-end pt-4 md:pt-0">
-                    <div className="bg-[#08020f] p-4 rounded-xl border border-yellow-900 mb-4 text-center">
-                        <div className="text-gray-400 text-xs font-bold mb-1">TOTAL PROFIT</div>
-                        <div className="text-4xl font-black text-yellow-400 font-mono drop-shadow-[0_0_10px_rgba(234,179,8,0.5)]">{(currentMultiplier).toFixed(2)}x</div>
-                        <div className="text-green-500 font-bold">+Rp {Math.floor(bet * currentMultiplier).toLocaleString('id-ID')}</div>
+                <div className="flex-1 flex flex-col justify-end pt-2 md:pt-0">
+                    <div className="bg-[#08020f] p-2 md:p-4 rounded-xl border border-yellow-900 mb-2 md:mb-4 text-center">
+                        <div className="text-gray-400 text-[10px] md:text-xs font-bold mb-1">TOTAL PROFIT</div>
+                        <div className="text-2xl md:text-4xl font-black text-yellow-400 font-mono drop-shadow-[0_0_10px_rgba(234,179,8,0.5)]">{(currentMultiplier).toFixed(2)}x</div>
+                        <div className="text-green-500 text-xs md:text-base font-bold">+Rp {Math.floor(bet * currentMultiplier).toLocaleString('id-ID')}</div>
                     </div>
 
-                    <div className="bg-[#08020f] p-3 rounded-xl border border-[#3d1a5c] mb-4 flex justify-between items-center text-xs">
+                    <div className="bg-[#08020f] p-2 md:p-3 rounded-xl border border-[#3d1a5c] mb-2 md:mb-4 flex justify-between items-center text-[10px] md:text-xs">
                         <span className="text-purple-300">Next Step:</span>
                         <span className="text-yellow-500 font-bold">{(nextMultiplier).toFixed(2)}x</span>
                     </div>
@@ -208,14 +208,14 @@ export const OlympusTowerGame: React.FC<OlympusTowerGameProps> = ({ banner, user
         </div>
 
         {/* Right Play Area (Tower) */}
-        <div className="flex-1 bg-[#1a082e] p-2 md:p-6 py-6 md:py-6 flex flex-col items-center justify-center relative min-h-[300px] md:min-h-[400px]">
+        <div className="flex-1 bg-[#1a082e] p-2 md:p-6 py-2 md:py-6 flex flex-col items-center justify-center relative min-h-0 md:min-h-[400px]">
             
             <div className="absolute top-4 right-4 text-[10px] text-yellow-500/50 font-mono flex items-center gap-1 bg-black/40 px-2 py-1 rounded-full border border-yellow-500/30">
                 <span className="w-1.5 h-1.5 bg-yellow-500 rounded-full animate-pulse"></span>
                 PROVABLY FAIR SYSTEM
             </div>
 
-            <div className="w-full max-w-[300px] md:max-w-[350px] flex flex-col-reverse gap-1 md:gap-2">
+            <div className="w-full max-w-[280px] md:max-w-[350px] flex flex-col-reverse gap-1 md:gap-2 scale-[0.9] md:scale-100 origin-center">
                 {board.map((row, rIdx) => {
                     const isCurrent = rIdx === currentRow && gameState === 'playing';
                     const isPast = rIdx < currentRow && gameState === 'playing';
@@ -227,7 +227,7 @@ export const OlympusTowerGame: React.FC<OlympusTowerGameProps> = ({ banner, user
                                     key={cIdx}
                                     disabled={!isCurrent || tile !== 'hidden'}
                                     onClick={() => handleTileClick(rIdx, cIdx)}
-                                    className={`flex-1 h-10 md:h-14 rounded-lg shadow-lg transition-all duration-300 flex items-center justify-center border-b-[3px] md:border-b-4 relative overflow-hidden
+                                    className={`flex-1 h-8 md:h-14 rounded-lg shadow-lg transition-all duration-300 flex items-center justify-center border-b-2 md:border-b-4 relative overflow-hidden
                                         ${tile === 'hidden' && isCurrent ? 'bg-[#3d1a5c] border-[#290d42] hover:bg-[#522978] cursor-pointer hover:-translate-y-1' : ''}
                                         ${tile === 'hidden' && !isCurrent ? 'bg-[#29133b] border-[#1c0d2b] cursor-not-allowed opacity-60' : ''}
                                         ${tile === 'safe' ? 'bg-gradient-to-b from-yellow-500 to-yellow-700 border-[#8a6a1c] !border-b-0 translate-y-1' : ''}
