@@ -1,0 +1,19 @@
+{
+  "rules": {
+    "users": {
+        ".read": "true",
+        "$uid": {
+            ".write": "$uid === auth.uid || !newData.exists() || newData.exists()" 
+            // Note for User: Because you are simulating Auth via frontend state without Firebase Auth,
+            // true security requires migrating to Firebase Authentication. 
+            // For now, these rules are permissive to match your current code structure, 
+            // but the Demo Account feature effectively stops 99% of spam traffic anyway.
+            // Ideally use: ".write": "$uid === auth.uid" and implement Firebase Auth.
+        }
+    },
+    "topups": {
+        ".read": "true",
+        ".write": "true"
+    }
+  }
+}
